@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>Nepal EQ Help and Relief Tracker</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    @*<link href="@Url.Content("~/Content/Skeleton/css")" rel="stylesheet" type="text/css">*@
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/Skeleton/normalize.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Skeleton/skeleton.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Skeleton/custom.css")">
+    <style type="text/css">
+        #bg {
+            visibility: hidden;
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            opacity: 0.24;
+        }
+
+            #bg img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                min-width: 50%;
+                min-height: 50%;
+            }
+
+
+        .error {
+            color: red;
+            text-decoration: solid;
+        }
+
+
+        /*  body {
+            background: url("../Content/Skeleton/bg.jpg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }*/
+
+        /*body {
+            background-image: url('values-bg.jpg');
+            background-size: cover;
+            color: #fff;
+        }*/
+    </style>
+    <!-- Scripts
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+    <link href="~/Content/Skeleton/MenuStyle.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/underscore.js"></script>
+    <link href="~/Scripts/jquery.datetimepicker.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.datetimepicker.js"></script>
+    <script src="~/Scripts/jquery.tablesorter.min.js"></script>
+    @*<script src="~/Scripts/jquery.mobile-1.4.5.min.js"></script>*@
+    @*<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>*@
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+        jQuery.extend(jQuery.validator.messages, {
+            required: "Required field.",
+            remote: "Please fix this field.",
+            email: "Please enter a valid email address.",
+            url: "Please enter a valid URL.",
+            date: "Please enter a valid date.",
+            dateISO: "Please enter a valid date (ISO).",
+            number: "Please enter a valid number.",
+            digits: "Please enter only digits.",
+            creditcard: "Please enter a valid credit card number.",
+            equalTo: "Please enter the same value again.",
+            accept: "Please enter a value with a valid extension.",
+            maxlength: jQuery.validator.format("Please enter no more than {0} characters."),
+            minlength: jQuery.validator.format("Please enter at least {0} characters."),
+            rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
+            range: jQuery.validator.format("Please enter a value between {0} and {1}."),
+            max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
+            min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
+        });
+    </script>
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/Skeleton/nepal.png")">
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+
+    <style id="style-1-cropbar-clipper">
+        /* Copyright 2014 Evernote Corporation. All rights reserved. */
+        .en-markup-crop-options {
+            top: 18px !important;
+            left: 50% !important;
+            margin-left: -100px !important;
+            width: 200px !important;
+            border: 2px rgba(255,255,255,.38) solid !important;
+            border-radius: 4px !important;
+        }
+
+            .en-markup-crop-options div div:first-of-type {
+                margin-left: 0px !important;
+            }
+    </style>
+</head>
+<body>
+    @*<div id="bg">
+            <img src="@Url.Content("~/Content/Skeleton/bg.jpg")" />
+        </div>*@
+
+    <!-- Primary Page Layout
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    
+        <div class="nav" id="tuckedMenu">
+            
+            <ul class="pure-menu-list">
+                <li class="pure=-menu-item">@Html.ActionLink("Dashboard", "Status", "Dashboard",null, new { @class = (ViewBag.CurMenu == "dashboard" ? "active" : "") })</li>
+                <li class="pure=-menu-item">@Html.ActionLink("Add Entry", "Index", "AddEntry",null, new { @class= (ViewBag.CurMenu == "addentry"?"active":"")})</li>
+                <li class="pure=-menu-item">@Html.ActionLink("Suggest", "Suggest", "AddEntry", null, new { @class = (ViewBag.CurMenu == "suggest" ? "active" : "") })</li>
+            </ul>
+        </div>
+    
+    <div class="section hero">
+        <div class="container">
+            <div class="row">
+                <h1>Nepal EQ Help Tracker</h1>
+                <h6>PLEASE DON'T ADD FAKE OR JUNK DATA</h6>
+                <h4 class="hero-heading">@ViewBag.HeaderMsg</h4>
+            </div>
+            <div class="row">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    @*<div class="section values">
+            <div class="container">
+                @*<div class="row">
+                        <div class="one-third column value">
+                            <h2 class="value-multiplier">67%</h2>
+                            <h5 class="value-heading">Purchase Increase</h5>
+                            <p class="value-description">Percentage of users more likely to purchase on mobile friendly site.</p>
+                        </div>
+                        <div class="one-third column value">
+                            <h2 class="value-multiplier">90%</h2>
+                            <h5 class="value-heading">Multi-device Users</h5>
+                            <p class="value-description">Most of the world accesses the internet on multiple devices.</p>
+                        </div>
+                        <div class="one-third column value">
+                            <h2 class="value-multiplier">66%</h2>
+                            <h5 class="value-heading">Sad Users</h5>
+                            <p class="value-description">Percentage of users that are frustrated with page load times.</p>
+                        </div>
+                    </div>
+            </div>
+        </div>*@
+
+    @*<div class="section get-help">
+            <div class="container">
+                <h3 class="section-heading">Need help getting started?</h3>
+                <p class="section-description">Skeleton is an amazingly easy place to start with responsive development. If you want to learn more, just visit the documentation!</p>
+                <a class="button button-primary" href="http://getskeleton.com/">View Skeleton Docs</a>
+            </div>
+        </div>*@
+
+    @*<div class="section categories">
+            <div class="container">
+                @*<h3 class="section-heading">Responsive Images</h3>
+                <p class="section-description">Skeleton images sit easily in grid with .u-max-full-width class. I suggest exploring solution to serving different images based on device size.</p>
+                <div class="row">
+                    <div class="one-half column category">
+                        <img class="u-max-full-width" src="@Url.Content("~/Content/Skeleton/placeholder.png")">
+                    ></div>
+                    <div class="one-half column category">
+                        <img class="u-max-full-width" src="@Url.Content("~/Content/Skeleton/placeholder.png")">
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+
+
+
+    <!-- End Document
+      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+</body>
+</html>

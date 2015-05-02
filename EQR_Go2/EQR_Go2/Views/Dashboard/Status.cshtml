@@ -1,0 +1,104 @@
+﻿@using EQR_Go2.Views.Shared;
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_EntryLayout.cshtml";
+    var ddlItems = new List<EQR_Go2.Models.Site>( FixedObjects.SiteList);
+    ddlItems.Insert(0,new EQR_Go2.Models.Site{Name = "All"});
+}
+<script>
+    $().ready(function () {
+        $('#Destination').change(function () {
+            window.location = "/Dashboard/Status/" + $(this).val();
+        });
+        $("#mainTable").tablesorter();
+    });
+</script>
+<div class="row">
+    Selected Site: @Html.DropDownList("Destination", ddlItems.Select(s => new SelectListItem { Text = s.Name, Value = s.Name, Selected = s.Name == ViewBag.SelectedValue }), new { id = "Destination" })
+</div>
+<div class="row">
+    No. of teams who visited this location: @(ViewBag.NoOfTeams == null? "---":ViewBag.NoOfTeams)
+</div>
+<table class="u-full-width" id="mainTable">
+    <thead>
+        <tr>
+            <th>Location</th>
+            <th>Team Visits</th>
+            @{
+                int comCount = FixedObjects.CommodityList.Count();
+                foreach (var site in FixedObjects.CommodityList.Select(s => s.Name))
+                {
+                    <th>@site</th>
+                }
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var val = (Dictionary<string, Dictionary<string, int>>)ViewBag.Results;
+            var teamVisits = (Dictionary<string, int>)ViewBag.TeamDetails;
+            if (val.Count > 0)
+            {
+                foreach (var x in val)
+                {
+                    <tr>
+                        <th>@x.Key</th>
+                        <td>@teamVisits[x.Key]</td>
+                        @if (x.Value.Count() > 0)
+                        {
+                            foreach (var com in x.Value)
+                            {
+                                <td>@com.Value</td>
+                            }
+                            @*<td>
+                                                <table>
+                                                    <tr>
+                                                        <th>
+                                                            @teamVisits[x.Key] teams have paid visit to this location.
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                            <th>Commodity</th>
+                                                            <th>Delivered Quantity</th>
+                                                        </tr>
+                                                        @foreach (var com in x.Value)
+                                                        {
+                                                            <tr>
+                                                                <td>@com.Key</td>
+                                                                <td>@com.Value</td>
+                                                            </tr>
+                                                        }
+
+                                            <tr>
+                                                    @foreach (var com in x.Value)
+                                                    {
+                                                        <td>@com.Key</td>
+                                                    }
+                                                </tr>
+                                            <tr>
+                                                    @foreach (var com in x.Value)
+                                                    {
+                                                        <td>@com.Value</td>
+                                                    }
+                                                </tr>
+                                </table>
+                                </td>*@
+                        }
+                        else
+                        {
+                            foreach (var site in FixedObjects.CommodityList.Select(s => s.Name))
+                            {
+                                <th> --- </th>
+                            }
+                        }
+
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr><td colspan="@comCount">No records found for this location.</td></tr>
+            }
+        }
+    </tbody>
+</table>
