@@ -16,7 +16,7 @@ namespace EQR_Go2.Controllers
         {
             ViewBag.CurMenu = "addentry";
             ViewBag.OpSuccessMsg = "";
-            ViewBag.HeaderMsg = "Going for help ? Fill up the form below to help others know what needs to be done";
+            ViewBag.HeaderMsg = "Going on a help mission? Help channelize the relief efforts by letting others know about your trip.";
             return View();
         }
 

@@ -198,7 +198,6 @@
     <Content Include="Content\Skeleton\skeleton.css" />
     <Content Include="Content\Skeleton\MenuStyle.css" />
     <Content Include="Content\Skeleton\values-bg.jpg" />
-    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Skeleton\css" />
     <Content Include="Scripts\Custom\AddCommodity.js" />
@@ -231,6 +230,8 @@
     <Content Include="packages.config" />
     <Content Include="App_Data\EQR_Go2.sqlite" />
     <None Include="Project_Readme.html" />
+    <None Include="Properties\PublishProfiles\eqr - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\eqr - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
   </ItemGroup>
   <PropertyGroup>
