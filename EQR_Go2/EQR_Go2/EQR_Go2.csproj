@@ -174,9 +174,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AjaxController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\AddEntryController.cs" />
@@ -185,18 +183,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Massive.Sqlite.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DbMapper.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Models.cs" />
     <Compile Include="Models\Trip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.cs" />
     <Compile Include="Views\Shared\FixedObjects.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Skeleton\custom.css" />
     <Content Include="Content\Skeleton\Flag_of_Nepal.svg" />
     <Content Include="Content\Skeleton\nepal.png" />
@@ -207,8 +200,6 @@
     <Content Include="Content\Skeleton\values-bg.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Dependencies\EQR_Go2.sqlite" />
     <Content Include="Content\Skeleton\css" />
     <Content Include="Scripts\Custom\AddCommodity.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -238,7 +229,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Dependencies\sqlite_manager-0.8.3-tb+sm+fx.xpi" />
     <Content Include="App_Data\EQR_Go2.sqlite" />
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\local.pubxml" />

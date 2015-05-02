@@ -1,0 +1,5 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/EQR_Go2/packages/System.Data.SQLite.Core.1.0.96.0/build/net40/x86
