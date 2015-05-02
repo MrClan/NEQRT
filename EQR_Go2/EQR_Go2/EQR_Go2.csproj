@@ -198,7 +198,6 @@
     <Content Include="Content\Skeleton\skeleton.css" />
     <Content Include="Content\Skeleton\MenuStyle.css" />
     <Content Include="Content\Skeleton\values-bg.jpg" />
-    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Skeleton\css" />
     <Content Include="Scripts\Custom\AddCommodity.js" />
