@@ -2,8 +2,8 @@
 @{
     ViewBag.Title = "Dashboard";
     Layout = "~/Views/Shared/_EntryLayout.cshtml";
-    var ddlItems = new List<EQR_Go2.Models.Site>( FixedObjects.SiteList);
-    ddlItems.Insert(0,new EQR_Go2.Models.Site{Name = "All"});
+    var ddlItems = new List<EQR_Go2.Models.Site>(FixedObjects.SiteList);
+    ddlItems.Insert(0, new EQR_Go2.Models.Site { Name = "All" });
 }
 <script>
     $().ready(function () {
@@ -17,7 +17,26 @@
     Selected Site: @Html.DropDownList("Destination", ddlItems.Select(s => new SelectListItem { Text = s.Name, Value = s.Name, Selected = s.Name == ViewBag.SelectedValue }), new { id = "Destination" })
 </div>
 <div class="row">
-    No. of teams who visited this location: @(ViewBag.NoOfTeams == null? "---":ViewBag.NoOfTeams)
+    @{
+        int visitCount = 0;
+        if (!String.IsNullOrEmpty(ViewBag.SelectedValue))
+        {
+            if (ViewBag.SelectedValue.ToLower() == "all")
+            {
+                visitCount = ((Dictionary<string,int>)ViewBag.TeamDetails).Sum(x=>x.Value);
+            }
+            else
+                if (ViewBag.TeamDetails.ContainsKey(ViewBag.SelectedValue))
+                {
+                    visitCount = ViewBag.TeamDetails[ViewBag.SelectedValue];
+                }
+        }
+        else
+        {
+            visitCount = ((Dictionary<string, int>)ViewBag.TeamDetails).Sum(x => x.Value);
+        }
+    }
+    No. of teams who visited this location: @visitCount
 </div>
 <table class="u-full-width" id="mainTable">
     <thead>
