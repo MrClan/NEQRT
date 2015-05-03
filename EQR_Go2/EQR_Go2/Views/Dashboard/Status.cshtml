@@ -38,22 +38,23 @@
     }
     No. of teams who visited this location: @visitCount
 </div>
-<table class="u-full-width" id="mainTable">
-    <thead>
-        <tr>
-            <th>Location</th>
-            <th>Team Visits</th>
-            @{
+<div class="row" style="overflow:auto;">
+    <table class="u-full-width" id="mainTable">
+        <thead>
+            <tr>
+                <th>Location</th>
+                <th>Team Visits</th>
+                @{
                 int comCount = FixedObjects.CommodityList.Count();
                 foreach (var site in FixedObjects.CommodityList.Select(s => s.Name))
                 {
                     <th>@site</th>
                 }
-            }
-        </tr>
-    </thead>
-    <tbody>
-        @{
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @{
             var val = (Dictionary<string, Dictionary<string, int>>)ViewBag.Results;
             var teamVisits = (Dictionary<string, int>)ViewBag.TeamDetails;
             if (val.Count > 0)
@@ -118,6 +119,7 @@
             {
                 <tr><td colspan="@comCount">No records found for this location.</td></tr>
             }
-        }
-    </tbody>
-</table>
+            }
+        </tbody>
+    </table>
+</div>

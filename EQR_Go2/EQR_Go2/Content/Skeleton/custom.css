@@ -7,7 +7,7 @@
 /* Sections
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .section {
-  padding: 8rem 0 7rem;
+  padding: 4rem 0 4rem;
   text-align: center;
 }
 .section-heading,
@@ -69,10 +69,10 @@
 /* Bigger than 550 */
 @media (min-width: 550px) {
   .section {
-    padding: 12rem 0 11rem;
+    padding: 4rem 0 4rem;
   }
   .hero {
-    padding-bottom: 12rem;
+    /*padding-bottom: 12rem;*/
     text-align: left;
     height: 165px;
   }
@@ -105,10 +105,10 @@
     font-size: 2.6rem;
   }
   .section {
-    padding: 14rem 0 15rem;
+    padding: 4rem 0 4rem;/*14rem 0 15rem;*/
   }
   .hero {
-    padding: 16rem 0 14rem;
+    /*padding: 16rem 0 14rem;*/
   }
   .section-description {
     max-width: 60%;
@@ -132,10 +132,10 @@
 /* Bigger than 1000 */
 @media (min-width: 1000px) {
   .section {
-    padding: 20rem 0 19rem;
+    /*padding: 20rem 0 19rem;*/
   }
   .hero {
-    padding: 22rem 0;
+    /*padding: 22rem 0;*/
   }
   .hero-heading {
     font-size: 3.0rem;
