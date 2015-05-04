@@ -1,0 +1,79 @@
+﻿@using EQR_Go2.Views.Shared;
+@model List<EQR_Go2.Models.Team>
+@{
+    ViewBag.Title = "Team Details";
+    Layout = "~/Views/Shared/_EntryLayout.cshtml";
+    var ddlItems = new List<EQR_Go2.Models.Site>(FixedObjects.SiteList);
+    ddlItems.Insert(0, new EQR_Go2.Models.Site { Name = "All" });
+}
+<script>
+    $().ready(function () {
+        debugger;
+        $('#Destination').change(function () {
+            window.location = "/Team/Details/" + $(this).val();
+        });
+        $("#mainTable").tablesorter();
+    });
+</script>
+<div class="row">
+    Selected Site: @Html.DropDownList("Destination", ddlItems.Select(s => new SelectListItem { Text = s.Name, Value = s.Name, Selected = s.Name == ViewBag.SelectedValue }), new { id = "Destination" })
+</div>
+
+<div class="row">
+    <table class="u-full-width" id="mainTable">
+        <thead>
+            <tr>
+                <th>
+                    TeamName
+                </th>
+                <th>
+                    MemCount
+                </th>
+                <th>
+                    PrimaryContact
+                </th>
+                <th>
+                    Destination
+                </th>
+                <th>
+                    DepartureFrom
+                </th>
+                <th>
+                    DepartureOn
+                </th>
+                <th>
+                    ETA
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TeamName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MemCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PrimaryContact)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Destination)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepartureFrom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepartureOn)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ETA)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
