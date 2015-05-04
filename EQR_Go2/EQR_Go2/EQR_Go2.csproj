@@ -178,7 +178,7 @@
     <Compile Include="Controllers\AjaxController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\AddEntryController.cs" />
-    <Compile Include="Controllers\TeamDetailsController.cs" />
+    <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="Dapper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
